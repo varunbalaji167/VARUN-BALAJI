@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Marneni Varun Balaji | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Global Styles */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        [data-theme="dark"] {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+
+        [data-theme="light"] {
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+
+        section {
+            transition: background-color 0.3s;
+            padding: 1.5rem;
+        }
+
+        [data-theme="dark"] section {
+            background-color: #2d3748;
+        }
+
+        [data-theme="light"] section {
+            background-color: #e2e8f0;
+        }
+
+        .hero-section {
+            height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #f7fafc;
+            position: relative;
+        }
+
+
+        [data-theme="dark"] .hero-section {
+            background: linear-gradient(135deg, #4a5568 0%, #41506a 100%),
+                no-repeat center center/cover;
+        }
+
+        [data-theme="light"] .hero-section {
+            background-color: #d6ddeb;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        [data-theme="dark"] .hero-btns a {
+            background: linear-gradient(to right, #f6ad55, #f6e05e);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .hero-btns a {
+            background: linear-gradient(to right, #ff61a6, #ec89b4);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .hero-content p {
+            color: #000;
+        }
+
+        [data-theme="dark"] .hero-btns a:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(to right, #f6e05e, #f6ad55);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] .hero-btns a:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(to right, #ec89b4, #ff61a6);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 640px) {
+            .hero-section {
+                height: auto;
+                padding: 2rem 1rem;
+            }
+
+            .hero-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+
+        .skill-container {
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        [data-theme="dark"] .skill-container {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        }
+
+        .skill-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-container i {
+            color: #f6ad55;
+        }
+
+        [data-theme="light"] .skill-container i {
+            color: #ff61a6;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .project-card {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .education-box {
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+        }
+
+        [data-theme="dark"] .education-box {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        }
+
+        .education-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-icons a {
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .contact-icons a:hover {
+            transform: scale(1.2);
+            color: #f6ad55;
+        }
+
+        [data-theme="light"] .contact-icons a:hover {
+            color: #ff61a6;
+        }
+
+        footer {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        [data-theme="light"] footer {
+            background-color: #edf2f7;
+            color: #2d3748;
+        }
+
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3 {
+            color: #f6ad55;
+        }
+
+        [data-theme="light"] h1,
+        [data-theme="light"] h2,
+        [data-theme="light"] h3 {
+            color: #2c5282;
+        }
+
+        [data-theme="light"] .text-accent {
+            color: #ff61a6;
+        }
+
+        [data-theme="light"] .icon-button i {
+            color: palevioletred;
+        }
+
+        [data-theme="light"] .icon-button i:hover {
+            color: rgb(244, 178, 11);
+        }
+
+        [data-theme="dark"] .icon-button i:hover {
+            color: palevioletred;
+        }
+
+        [data-theme="dark"] .icon-button i {
+            color: rgb(244, 178, 11);
+        }
+
+        [data-theme="dark"] .project-card a {
+            color: rgb(244, 178, 11);
+        }
+
+        [data-theme="light"] .project-card a {
+            color: palevioletred;
+        }
+
+        nav {
+            transition: background-color 0.3s;
+        }
+
+        [data-theme="light"] nav {
+            background-color: #e2e8f0;
+        }
+
+        [data-theme="dark"] nav {
+            background-color: #41506a;
+        }
+
+        .portfolio-title {
+            transition: color 0.3s;
+        }
+
+        [data-theme="light"] .portfolio-title {
+            color: palevioletred;
+        }
+
+        [data-theme="dark"] .portfolio-title {
+            color: rgb(244,
+                    178,
+                    11);
+        }
+    </style>
+</head>
+
+<body class="font-sans transition-colors duration-300" data-theme="dark">
+    <!-- Navigation Bar -->
+    <nav class="nav p-4">
+        <div class="mx-auto flex justify-between items-center">
+            <p class="text-lg font-extrabold portfolio-title">My Portfolio</p>
+            <div class="flex items-center" onclick="toggleMenu()">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="icon-button">
+                    <i class="fas fa-sun fa-lg" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl mb-3 font-extrabold leading-tight">
+                Hi, I'm Marneni Varun Balaji
+            </h1>
+            <p class="text-lg sm:text-xl mb-6">
+                A Full-Stack Developer Passionate about creating scalable web
+                solutions
+            </p>
+            <div class="hero-btns space-x-4">
+                <a href="https://github.com/varunbalaji167" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/marneni-varun-balaji-9301a22b2/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="p-6">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="education-box p-4 rounded-md shadow-sm">
+                <p class="mt-2">
+                    As a student at IIT Indore with a passion for full-stack web
+                    development, I excel in both frontend and backend technologies. My
+                    proactive approach and problem-solving skills drive me to create
+                    efficient and intuitive web solutions. I am eager to collaborate on
+                    innovative projects and contribute to impactful digital experiences.
+                </p>
+            </div>
+            <div class="education-box p-4 rounded-md shadow-sm">
+                <h3 class="text-xl font-semibold">Education</h3>
+                <p class="mt-2">BTech, Computer Science Engineering</p>
+                <p class="text-gray-400">2023-2027</p>
+                <p class="mt-2">BTech, Psychology</p>
+                <p class="text-gray-400">2024-2027</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="p-6">
+        <h2 class="text-3xl font-bold mb-6">Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-html5 fa-3x"></i>
+                <p class="mt-2 text-center">HTML</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-css3-alt fa-3x"></i>
+                <p class="mt-2 text-center">CSS</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-js-square fa-3x"></i>
+                <p class="mt-2 text-center">JavaScript</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-react fa-3x"></i>
+                <p class="mt-2 text-center">React</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fas fa-database fa-3x"></i>
+                <p class="mt-2 text-center">SQL</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-node fa-3x"></i>
+                <p class="mt-2 text-center">Node.js</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-github fa-3x"></i>
+                <p class="mt-2 text-center">GitHub</p>
+            </div>
+            <div class="skill-container p-4 rounded-md shadow-sm">
+                <i class="fab fa-python fa-3x"></i>
+                <p class="mt-2 text-center">Django</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="p-6">
+        <h2 class="text-3xl font-bold mb-6">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="project-card p-4 rounded-md shadow-sm">
+                <h3 class="text-xl font-semibold"> Health Monitoring System</h3>
+                <p class="mt-2">
+                <ul>This project is a full-stack application for real-time monitoring of patient vitals using a bedside
+                    tablet. The project consists of the following parts:
+                </ul>
+
+                <li>Frontend: Built with React, Vite, and Tailwind CSS.</li>
+                <li>Backend: Developed using Django and Django REST Framework.</li>
+                <li> ML Model Integration: Flask is used to integrate and serve machine learning models.</li>
+
+                </p>
+                <a href="https://github.com/varunbalaji167/Siddhi_health_app_monitoring.git " target="_blank"
+                    class="mt-2 text-blue-500 hover:underline">View Project</a>
+            </div>
+            <div class="project-card p-4 rounded-md shadow-sm">
+                <h3 class="text-xl font-semibold">Live Weather</h3>
+                <p class="mt-2">This Live Weather Website is a simple web application that provides current weather information for a given City Name</p>
+                <a href="https://varunbalaji167.github.io/Live-Weather/" target="_blank"
+                    class="mt-2 text-blue-500 hover:underline">Use it</a>
+            </div>
+            <div class="project-card p-4 rounded-md shadow-sm">
+                <h3 class="text-xl font-semibold">IOT App</h3>
+                <p class="mt-2">Under development...</p>
+                <a href="https://github.com/varunbalaji167/iotapp.git" target="_blank"
+                    class="mt-2 text-blue-500 hover:underline">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="p-6">
+        <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+        <div class="contact-icons flex justify-center space-x-4">
+            <a href="mailto:varunbalaji917@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+            <a href="https://github.com/varunbalaji167" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+
+            <a href="https://www.linkedin.com/in/marneni-varun-balaji-9301a22b2/" target="_blank"><i
+                    class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Marneni Varun Balaji. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+        const body = document.body;
+
+        themeToggleBtn.addEventListener("click", () => {
+            if (body.getAttribute("data-theme") === "dark") {
+                body.setAttribute("data-theme", "light");
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+            } else {
+                body.setAttribute("data-theme", "dark");
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+            }
+        });
+    </script>
+</body>
+
+</html>
